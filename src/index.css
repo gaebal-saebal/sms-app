@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .test {
+    background-color: pink;
+    font-size: 40px;
+    font-weight: bold;
+  }
+}
