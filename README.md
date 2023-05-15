@@ -43,5 +43,4 @@
 
 ## 라이센스
 
-MIT &copy; [Rosenfence](mailto:rosenfence@gmail.com) / [JS-Ha](mailto:jshaha0911@gmail.com)
-[Sonjiwon0](mailto:sjiwon9303@gmail.com)
+MIT &copy; [Rosenfence](mailto:rosenfence@gmail.com) / [JS-Ha](mailto:jshaha0911@gmail.com) / [Sonjiwon0](mailto:sjiwon9303@gmail.com)
