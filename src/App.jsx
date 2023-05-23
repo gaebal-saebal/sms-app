@@ -6,13 +6,15 @@ import { handleGithubLogin } from './function/login/githubOauthLogin';
 import { handleGoogleLogin } from './function/login/googleOauthLogin';
 import { handleLogOut } from './function/login/logout';
 import addData from './function/db/addData';
+import getData from './function/db/getData';
 
 function App() {
   const [user, setUser] = useState('로그인 해주세요');
   const [id, setId] = useState(0);
   const [content, setContent] = useState('');
   const [date, setDate] = useState('230523');
-
+  const [list, setList] = useState([]);
+  console.log(list);
   return (
     <div>
       <h1 className={`text-[35px] font-bold underline`}>Hello world!</h1>
@@ -33,7 +35,11 @@ function App() {
         </div>
 
         <Button onClick={() => addData(id, content, date)}>데이터 추가하기</Button>
+        <Button onClick={() => setList(getData)}>테스트</Button>
       </div>
+      {/* {list.map((a) => {
+        return <div>{a}</div>;
+      })} */}
     </div>
   );
 }
