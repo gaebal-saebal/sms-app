@@ -13,8 +13,8 @@ function App() {
   const [id, setId] = useState(0);
   const [content, setContent] = useState('');
   const [date, setDate] = useState('230523');
-  const [list, setList] = useState([]);
-  console.log(list);
+  const [lists, setLists] = useState([]);
+
   return (
     <div>
       <h1 className={`text-[35px] font-bold underline`}>Hello world!</h1>
@@ -35,11 +35,18 @@ function App() {
         </div>
 
         <Button onClick={() => addData(id, content, date)}>데이터 추가하기</Button>
-        <Button onClick={() => setList(getData)}>테스트</Button>
+        <Button onClick={() => getData(setLists)}>테스트</Button>
       </div>
-      {/* {list.map((a) => {
-        return <div>{a}</div>;
-      })} */}
+      {lists.map((list, i) => {
+        return (
+          <div key={i}>
+            <div>{`id : ${list.id}`}</div>
+            <div>{`content : ${list.content}`}</div>
+            <div>{`date : ${list.date}`}</div>
+            <br />
+          </div>
+        );
+      })}
     </div>
   );
 }
