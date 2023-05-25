@@ -21,13 +21,9 @@ function App() {
       <h1 className={`text-[35px] font-bold underline`}>Hello world!</h1>
       <h1 className='test'>Test</h1>
       <SignUp />
-      <Button onClick={() => handleGoogleLogin(setUser)}>
-        Log in with google
-      </Button>
+      <Button onClick={() => handleGoogleLogin(setUser)}>Log in with google</Button>
       <p> {user}</p>
-      <Button onClick={() => handleGithubLogin(setUser)}>
-        Log in with github
-      </Button>
+      <Button onClick={() => handleGithubLogin(setUser)}>Log in with github</Button>
       <Button onClick={() => handleLogOut(setUser)}>Log-out</Button>
       <div>
         <div>
@@ -39,9 +35,7 @@ function App() {
           <input id='content' onChange={(e) => setContent(e.target.value)} />
         </div>
 
-        <Button onClick={() => addData(id, content, date)}>
-          데이터 추가하기
-        </Button>
+        <Button onClick={() => addData(id, content, date)}>데이터 추가하기</Button>
         <Button onClick={() => getData(setLists)}>테스트</Button>
       </div>
       {lists.map((list, i) => {
@@ -54,7 +48,7 @@ function App() {
           </div>
         );
       })}
-      <Button onClick={() => deleData()}>데이터 삭제</Button>
+      <Button onClick={() => deleData(id)}>데이터 삭제</Button>
     </div>
   );
 }
