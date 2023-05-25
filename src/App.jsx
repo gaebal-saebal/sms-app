@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { SignUp } from './components';
 
 import Button from './components/Button';
@@ -13,7 +13,6 @@ function App() {
   const [user, setUser] = useState('로그인 해주세요');
   const [id, setId] = useState(0);
   const [content, setContent] = useState('');
-  const [date, setDate] = useState('');
   const [lists, setLists] = useState([]);
 
   return (
@@ -21,13 +20,9 @@ function App() {
       <h1 className={`text-[35px] font-bold underline`}>Hello world!</h1>
       <h1 className='test'>Test</h1>
       <SignUp />
-      <Button onClick={() => handleGoogleLogin(setUser)}>
-        Log in with google
-      </Button>
+      <Button onClick={() => handleGoogleLogin(setUser)}>Log in with google</Button>
       <p> {user}</p>
-      <Button onClick={() => handleGithubLogin(setUser)}>
-        Log in with github
-      </Button>
+      <Button onClick={() => handleGithubLogin(setUser)}>Log in with github</Button>
       <Button onClick={() => handleLogOut(setUser)}>Log-out</Button>
       <div>
         <div>
@@ -41,9 +36,7 @@ function App() {
 
         <Button
           onClick={() => {
-            const createdAt = new Date().toLocaleString();
-            setDate(createdAt);
-            addData(id, content, date);
+            addData(id, content);
           }}
         >
           데이터 추가하기

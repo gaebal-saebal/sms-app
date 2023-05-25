@@ -1,7 +1,9 @@
 import { doc, setDoc } from 'firebase/firestore';
 import { db } from '../../firebase/firebase';
 
-export default async function addData(id, content, date) {
+export default async function addData(id, content) {
+  const date = new Date().toLocaleString();
+
   try {
     await setDoc(doc(db, 'users', id), {
       id,
