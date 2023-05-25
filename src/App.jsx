@@ -13,7 +13,7 @@ function App() {
   const [user, setUser] = useState('로그인 해주세요');
   const [id, setId] = useState(0);
   const [content, setContent] = useState('');
-  const [date, setDate] = useState('230523');
+  const [date, setDate] = useState('');
   const [lists, setLists] = useState([]);
 
   return (
@@ -21,9 +21,13 @@ function App() {
       <h1 className={`text-[35px] font-bold underline`}>Hello world!</h1>
       <h1 className='test'>Test</h1>
       <SignUp />
-      <Button onClick={() => handleGoogleLogin(setUser)}>Log in with google</Button>
+      <Button onClick={() => handleGoogleLogin(setUser)}>
+        Log in with google
+      </Button>
       <p> {user}</p>
-      <Button onClick={() => handleGithubLogin(setUser)}>Log in with github</Button>
+      <Button onClick={() => handleGithubLogin(setUser)}>
+        Log in with github
+      </Button>
       <Button onClick={() => handleLogOut(setUser)}>Log-out</Button>
       <div>
         <div>
@@ -35,7 +39,15 @@ function App() {
           <input id='content' onChange={(e) => setContent(e.target.value)} />
         </div>
 
-        <Button onClick={() => addData(id, content, date)}>데이터 추가하기</Button>
+        <Button
+          onClick={() => {
+            const createdAt = new Date().toLocaleString();
+            setDate(createdAt);
+            addData(id, content, date);
+          }}
+        >
+          데이터 추가하기
+        </Button>
         <Button onClick={() => getData(setLists)}>테스트</Button>
       </div>
       {lists.map((list, i) => {
