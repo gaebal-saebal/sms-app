@@ -29,4 +29,4 @@ const handleGithubLogin = (setState) => {
     });
 };
 
-export { handleGithubLogin };
+export default handleGithubLogin;

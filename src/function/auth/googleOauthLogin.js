@@ -27,4 +27,4 @@ const handleGoogleLogin = (setState) => {
     });
 };
 
-export { handleGoogleLogin };
+export default handleGoogleLogin;

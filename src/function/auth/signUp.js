@@ -1,7 +1,7 @@
 import { createUserWithEmailAndPassword } from 'firebase/auth';
-import { auth } from './firebase';
+import { auth } from '../../firebase/firebase';
 
-const signUp = (email, password) => {
+const handleSignUp = (email, password) => {
   createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
       // Signed in
@@ -18,4 +18,4 @@ const signUp = (email, password) => {
     });
 };
 
-export default signUp;
+export default handleSignUp;

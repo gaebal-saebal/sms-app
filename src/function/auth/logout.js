@@ -13,4 +13,4 @@ const handleLogOut = (setState) => {
       // An error happened.
     });
 };
-export { handleLogOut };
+export default handleLogOut;

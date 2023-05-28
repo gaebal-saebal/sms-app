@@ -1,13 +1,7 @@
-import React, { useEffect, useState } from 'react';
-import { SignUp } from './components';
-
-import Button from './components/Button';
-import { handleGithubLogin } from './function/login/githubOauthLogin';
-import { handleGoogleLogin } from './function/login/googleOauthLogin';
-import { handleLogOut } from './function/login/logout';
-import addData from './function/db/addData';
-import getData from './function/db/getData';
-import { deleData } from './function/db/deleteData';
+import React, { useState, useEffect } from 'react';
+import { Button, SignUp } from './components';
+import { addData, getData, deleteData } from './function/db';
+import { handleGithubLogin, handleGoogleLogin, handleLogOut } from './function/auth';
 
 function App() {
   const [user, setUser] = useState('로그인 해주세요');
@@ -15,15 +9,21 @@ function App() {
   const [content, setContent] = useState('');
   const [lists, setLists] = useState([]);
 
+  useEffect(() => {
+    getData(setLists);
+  }, []);
+
   return (
     <div>
       <h1 className={`text-[35px] font-bold underline`}>Hello world!</h1>
       <h1 className='test'>Test</h1>
       <SignUp />
-      <Button onClick={() => handleGoogleLogin(setUser)}>Log in with google</Button>
       <p> {user}</p>
+
+      <Button onClick={() => handleGoogleLogin(setUser)}>Log in with google</Button>
       <Button onClick={() => handleGithubLogin(setUser)}>Log in with github</Button>
       <Button onClick={() => handleLogOut(setUser)}>Log-out</Button>
+
       <div>
         <div>
           <label htmlFor='id'>id</label>
@@ -34,15 +34,11 @@ function App() {
           <input id='content' onChange={(e) => setContent(e.target.value)} />
         </div>
 
-        <Button
-          onClick={() => {
-            addData(id, content);
-          }}
-        >
-          데이터 추가하기
-        </Button>
-        <Button onClick={() => getData(setLists)}>테스트</Button>
+        <Button onClick={() => getData(setLists)}>새로 불러오기</Button>
+        <Button onClick={() => addData(id, content)}>데이터 추가하기</Button>
+        <Button onClick={() => deleteData(id)}>데이터 삭제</Button>
       </div>
+
       {lists.map((list, i) => {
         return (
           <div key={i}>
@@ -53,7 +49,6 @@ function App() {
           </div>
         );
       })}
-      <Button onClick={() => deleData(id)}>데이터 삭제</Button>
     </div>
   );
 }

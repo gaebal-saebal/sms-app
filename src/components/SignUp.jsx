@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import signUp from '../firebase/signUp';
+import signUp from '../function/auth/signUp';
 
 const SignUp = () => {
   const [email, setEmail] = useState('');
@@ -24,7 +24,11 @@ const SignUp = () => {
   return (
     <>
       <input placeholder='email' onChange={(e) => handleChange(e, setEmail)}></input>
-      <input placeholder='more than 4 letters' type='password' onChange={(e) => handleChange(e, setPassword)}></input>
+      <input
+        placeholder='more than 4 letters'
+        type='password'
+        onChange={(e) => handleChange(e, setPassword)}
+      ></input>
       <button onClick={handleClick}>SignUp</button>
     </>
   );

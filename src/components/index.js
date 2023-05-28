@@ -1,3 +1,4 @@
 import SignUp from './SignUp';
+import Button from './Button';
 
-export { SignUp };
+export { Button, SignUp };
