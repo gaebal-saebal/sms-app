@@ -5,6 +5,7 @@ import { Button, SignUp } from './components';
 import { addData, getData, deleteData } from './function/db';
 // import handle Auth functions from function/auth dir
 import { handleGithubLogin, handleGoogleLogin, handleLogOut } from './function/auth';
+import Detail from './components/Detail';
 
 function App() {
   const [user, setUser] = useState('로그인 해주세요'); // 현재 user(비로그인/로그아웃시 '로그인 해주세요')
@@ -22,7 +23,15 @@ function App() {
         <h1 className={`text-[35px] font-bold underline`}>Hello world!</h1>
         <h1 className='test'>Test</h1>
       </header>
-
+      <div className='flex justify-center'>
+        {lists.length > 0 ? (
+          <Detail>
+            <div className='text-xs text-gray-500'>{lists[0].id}</div>
+            <div>{lists[0].content}</div>
+            <div className='text-xs text-gray-500'>{lists[0].date}</div>
+          </Detail>
+        ) : null}
+      </div>
       <div className='my-10 border-2'>
         <p> {user}</p>
         <SignUp />
