@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import signUp from '../function/auth/signUp';
+import { handleSignUp } from '../function/auth';
 
 const SignUp = () => {
   const [email, setEmail] = useState('');
@@ -17,7 +17,7 @@ const SignUp = () => {
     } else if (password.length < 6) {
       alert('Password must be at least 6 characters');
     } else {
-      signUp(email, password);
+      handleSignUp(email, password);
     }
   };
 
@@ -29,7 +29,9 @@ const SignUp = () => {
         type='password'
         onChange={(e) => handleChange(e, setPassword)}
       ></input>
-      <button onClick={handleClick}>SignUp</button>
+      <button onClick={handleClick} className='border-2'>
+        SignUp
+      </button>
     </>
   );
 };
