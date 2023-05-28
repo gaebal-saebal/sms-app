@@ -57,7 +57,7 @@ function App() {
             getData(setLists);
           }}
         >
-          데이터 추가하기
+          데이터 추가/수정하기
         </Button>
         <Button
           onClick={async () => {
