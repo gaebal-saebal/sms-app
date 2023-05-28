@@ -69,15 +69,17 @@ function App() {
         </Button>
       </div>
 
-      {lists.map((list, i) => {
-        return (
-          <div className='p-5 my-2 bg-red-200 border-2' key={i}>
-            <div>{`id : ${list.id}`}</div>
-            <div>{`content : ${list.content}`}</div>
-            <div>{`date : ${list.date}`}</div>
-          </div>
-        );
-      })}
+      <div className='flex flex-wrap'>
+        {lists.map((list, i) => {
+          return (
+            <div className='w-1/4 h-full p-5 my-2 bg-red-200 border-2' key={i}>
+              <div className='text-xs text-gray-500'>{list.id}</div>
+              <div>{list.content}</div>
+              <div className='text-xs text-gray-500'>{list.date}</div>
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 }
