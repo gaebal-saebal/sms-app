@@ -51,8 +51,22 @@ function App() {
 
         {/* Data Buttons */}
         <Button onClick={() => getData(setLists)}>새로 불러오기</Button>
-        <Button onClick={() => addData(id, content)}>데이터 추가하기</Button>
-        <Button onClick={() => deleteData(id)}>데이터 삭제</Button>
+        <Button
+          onClick={async () => {
+            await addData(id, content);
+            getData(setLists);
+          }}
+        >
+          데이터 추가하기
+        </Button>
+        <Button
+          onClick={async () => {
+            await deleteData(id);
+            getData(setLists);
+          }}
+        >
+          데이터 삭제
+        </Button>
       </div>
 
       {lists.map((list, i) => {
