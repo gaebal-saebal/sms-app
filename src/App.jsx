@@ -23,15 +23,6 @@ function App() {
         <h1 className={`text-[35px] font-bold underline`}>Hello world!</h1>
         <h1 className='test'>Test</h1>
       </header>
-      <div className='flex justify-center'>
-        {lists.length > 0 ? (
-          <Detail>
-            <div className='text-xs text-gray-500'>{lists[0].id}</div>
-            <div>{lists[0].content}</div>
-            <div className='text-xs text-gray-500'>{lists[0].date}</div>
-          </Detail>
-        ) : null}
-      </div>
       <div className='my-10 border-2'>
         <p> {user}</p>
         <SignUp />
@@ -81,11 +72,11 @@ function App() {
       <div className='flex flex-wrap'>
         {lists.map((list, i) => {
           return (
-            <div className='w-1/4 h-full p-5 my-2 bg-red-200 border-2' key={i}>
+            <Detail key={i}>
               <div className='text-xs text-gray-500'>{list.id}</div>
               <div>{list.content}</div>
               <div className='text-xs text-gray-500'>{list.date}</div>
-            </div>
+            </Detail>
           );
         })}
       </div>
