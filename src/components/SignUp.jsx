@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import signUp from '../function/auth/signUp';
+import signUp from '../function/auth/signUp'; // 왜 이게 없으면 오류?
+import { handleSignUp } from '../function/auth';
 
 const SignUp = () => {
   const [email, setEmail] = useState('');
@@ -17,7 +18,7 @@ const SignUp = () => {
     } else if (password.length < 6) {
       alert('Password must be at least 6 characters');
     } else {
-      signUp(email, password);
+      handleSignUp(email, password);
     }
   };
 
