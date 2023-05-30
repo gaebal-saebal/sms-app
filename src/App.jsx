@@ -31,6 +31,7 @@ function App() {
         <div>
           <Button onClick={() => handleGoogleLogin(setUser)}>Log in with google</Button>
           <Button onClick={() => handleGithubLogin(setUser)}>Log in with github</Button>
+
           <Button onClick={() => handleLogOut(setUser)}>Log-out</Button>
         </div>
       </div>

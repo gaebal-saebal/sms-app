@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import signUp from '../function/auth/signUp'; // 왜 이게 없으면 오류?
-import { handleSignUp } from '../function/auth';
+import { handleSignIn, handleSignUp } from '../function/auth';
 
 const SignUp = () => {
   const [email, setEmail] = useState('');
@@ -22,6 +22,10 @@ const SignUp = () => {
     }
   };
 
+  const handleLogin = () => {
+    handleSignIn(email, password);
+  };
+
   return (
     <>
       <input placeholder='email' onChange={(e) => handleChange(e, setEmail)}></input>
@@ -31,6 +35,7 @@ const SignUp = () => {
         onChange={(e) => handleChange(e, setPassword)}
       ></input>
       <button onClick={handleClick}>SignUp</button>
+      <button onClick={handleLogin}>Login</button>
     </>
   );
 };
