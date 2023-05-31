@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 // import components from componets dir
-import { Button } from './components';
+import { Button, OAuthButton } from './components';
 // import handle DB functions from function/db dir
 import { addData, getData, deleteData } from './function/db';
 // import handle Auth functions from function/auth dir
@@ -30,8 +30,12 @@ function App() {
         <SignUp />
         {/* Auth buttons */}
         <div>
-          <Button onClick={() => handleGoogleLogin(setUser)}>Log in with google</Button>
-          <Button onClick={() => handleGithubLogin(setUser)}>Log in with github</Button>
+          <OAuthButton outhType='google' setUser={setUser}>
+            Log in with google
+          </OAuthButton>
+          <OAuthButton outhType='github' setUser={setUser}>
+            Log in with gitHub
+          </OAuthButton>
 
           <Button onClick={() => handleLogOut(setUser)}>Log-out</Button>
         </div>

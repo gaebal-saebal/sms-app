@@ -9,12 +9,25 @@ import { handleGithubLogin, handleGoogleLogin } from '../function/auth';
  * @param {*} children
  * @returns
  */
-const OAuthButton = (type, setUser, children) => {
+const OAuthButton = ({ outhType, setUser }) => {
   const handleClick = () => {
-    if (type === 'github') {
+    if (outhType === 'github') {
+      handleGithubLogin(setUser);
+    } else {
+      handleGoogleLogin(setUser);
     }
   };
-  return <Button>{children}</Button>;
+
+  const buttonStyle = {
+    color: outhType === 'github' ? 'white' : 'black',
+    background: outhType === 'github' ? 'black' : 'white',
+  };
+
+  return (
+    <Button onClick={handleClick} style={buttonStyle}>
+      {outhType === 'github' ? 'Sign up with GitHub' : 'Sign up with Google'}
+    </Button>
+  );
 };
 
 export default OAuthButton;
