@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
 // import components from componets dir
-import { Button, SignUp } from './components';
+import { Button } from './components';
 // import handle DB functions from function/db dir
 import { addData, getData, deleteData } from './function/db';
 // import handle Auth functions from function/auth dir
 import { handleGithubLogin, handleGoogleLogin, handleLogOut } from './function/auth';
+// import pages
+import { SignUp } from './pages';
 import Detail from './components/Detail';
 
 function App() {
@@ -26,7 +28,6 @@ function App() {
       <div className='my-10 border-2'>
         <p> {user}</p>
         <SignUp />
-
         {/* Auth buttons */}
         <div>
           <Button onClick={() => handleGoogleLogin(setUser)}>Log in with google</Button>

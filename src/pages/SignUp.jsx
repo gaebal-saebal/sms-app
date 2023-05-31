@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import signUp from '../function/auth/signUp'; // 왜 이게 없으면 오류?
 import { handleSignIn, handleSignUp } from '../function/auth';
 
 const SignUp = () => {
