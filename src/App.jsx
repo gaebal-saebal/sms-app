@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
 // import components from componets dir
-import { Button, OAuthButton } from './components';
+import { Navbar } from './components';
 // import handle DB functions from function/db dir
 import { addData, getData, deleteData } from './function/db';
 // import handle Auth functions from function/auth dir
-import { handleGithubLogin, handleGoogleLogin, handleLogOut } from './function/auth';
+import { handleLogOut } from './function/auth';
 // import pages
-import { SignUp } from './pages';
-import Detail from './components/Detail';
+import { SignUp, Login, FriendList, SmsDetail, WriteSms } from './pages';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 function App() {
   const [user, setUser] = useState('로그인 해주세요'); // 현재 user(비로그인/로그아웃시 '로그인 해주세요')
@@ -21,71 +21,17 @@ function App() {
 
   return (
     <div>
-      <header>
-        <h1 className={`text-[35px] font-bold underline`}>Hello world!</h1>
-        <h1 className='test'>Test</h1>
-      </header>
-      <div className='my-10 border-2'>
-        <p> {user}</p>
-        <SignUp />
-        {/* Auth buttons */}
-        <div>
-          <OAuthButton outhType='google' setUser={setUser}>
-            Log in with google
-          </OAuthButton>
-          <OAuthButton outhType='github' setUser={setUser}>
-            Log in with gitHub
-          </OAuthButton>
-
-          <Button onClick={() => handleLogOut(setUser)}>Log-out</Button>
-        </div>
-      </div>
-
-      <div className='py-2 my-10 border-2'>
-        <div>
-          <label htmlFor='id'>id</label>
-          <input className='mx-4 border-2' id='id' onChange={(e) => setId(e.target.value)} />
-        </div>
-        <div>
-          <label htmlFor='content'>content</label>
-          <input
-            className='mx-4 mb-4 border-2'
-            id='content'
-            onChange={(e) => setContent(e.target.value)}
-          />
-        </div>
-
-        {/* Data Buttons */}
-        <Button onClick={() => getData(setLists)}>새로 불러오기</Button>
-        <Button
-          onClick={async () => {
-            await addData(id, content);
-            getData(setLists);
-          }}
-        >
-          데이터 추가/수정하기
-        </Button>
-        <Button
-          onClick={async () => {
-            await deleteData(id);
-            getData(setLists);
-          }}
-        >
-          데이터 삭제
-        </Button>
-      </div>
-
-      <div className='flex flex-wrap'>
-        {lists.map((list, i) => {
-          return (
-            <Detail key={i}>
-              <div className='text-xs text-gray-500'>{list.id}</div>
-              <div>{list.content}</div>
-              <div className='text-xs text-gray-500'>{list.date}</div>
-            </Detail>
-          );
-        })}
-      </div>
+      <BrowserRouter>
+        <Navbar>네비게이션바</Navbar>
+        <Routes>
+          <Route path='/' element={<div>메인페이지</div>} />
+          <Route path='/login' element={<Login />} />
+          <Route path='/signup' element={<SignUp />} />
+          <Route path='/friend' element={<FriendList />} />
+          <Route path='/sms:id' element={<SmsDetail />} />
+          <Route path='/write' element={<WriteSms />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
