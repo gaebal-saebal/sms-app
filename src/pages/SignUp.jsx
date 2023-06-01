@@ -29,7 +29,7 @@ const SignUp = () => {
     <>
       <input placeholder='email' onChange={(e) => handleChange(e, setEmail)}></input>
       <input
-        placeholder='more than 4 letters'
+        placeholder='more than 6 letters'
         type='password'
         onChange={(e) => handleChange(e, setPassword)}
       ></input>
