@@ -18,10 +18,12 @@ const OAuthButton = ({ outhType, setUser }) => {
     }
   };
 
-  const buttonStyle = {
-    color: outhType === 'github' ? 'white' : 'black',
-    background: outhType === 'github' ? 'black' : 'white',
-  };
+  const buttonStyle =
+    (outhType === 'github' ? 'text-white' : 'text-black') +
+    ' ' +
+    (outhType === 'github' ? 'bg-black' : 'bg-white');
+
+  console.log(buttonStyle);
 
   return (
     <Button onClick={handleClick} style={buttonStyle}>

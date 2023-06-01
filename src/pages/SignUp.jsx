@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { handleSignIn, handleSignUp } from '../function/auth';
+import { handleSignUp } from '../function/auth';
+import { Button, OAuthButton } from '../components';
 
 const SignUp = () => {
   const [email, setEmail] = useState('');
@@ -21,21 +22,21 @@ const SignUp = () => {
     }
   };
 
-  const handleLogin = () => {
-    handleSignIn(email, password);
-  };
-
   return (
-    <>
+    <div className='flex-col w-64 bg-white h-1/2 flex-center'>
+      <div className='mb-16'>회원가입</div>
       <input placeholder='email' onChange={(e) => handleChange(e, setEmail)}></input>
       <input
         placeholder='more than 6 letters'
         type='password'
         onChange={(e) => handleChange(e, setPassword)}
       ></input>
-      <button onClick={handleClick}>SignUp</button>
-      <button onClick={handleLogin}>Login</button>
-    </>
+      <Button className='mt-12' onClick={handleClick}>
+        SignUp
+      </Button>
+      <OAuthButton outhType='github' />
+      <OAuthButton outhType='google' />
+    </div>
   );
 };
 export default SignUp;

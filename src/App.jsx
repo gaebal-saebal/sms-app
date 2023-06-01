@@ -20,9 +20,8 @@ function App() {
   }, []); // '/' 페이지가 로드될 시 data list 가져옴
 
   return (
-    <div>
+    <div className='relative h-screen w-[768px] bg-red-100 flex-center'>
       <BrowserRouter>
-        <Navbar>네비게이션바</Navbar>
         <Routes>
           <Route path='/' element={<div>메인페이지</div>} />
           <Route path='/login' element={<Login />} />
@@ -31,6 +30,7 @@ function App() {
           <Route path='/sms:id' element={<SmsDetail />} />
           <Route path='/write' element={<WriteSms />} />
         </Routes>
+        <Navbar>네비게이션바</Navbar>
       </BrowserRouter>
     </div>
   );
