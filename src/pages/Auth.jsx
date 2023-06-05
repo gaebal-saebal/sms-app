@@ -48,8 +48,8 @@ const Auth = ({ authType, setIsLogin }) => {
         <Button className='mt-12' onClick={handleClick}>
           SignUp
         </Button>
-        <OAuthButton outhType='github' type='Sign up' />
-        <OAuthButton outhType='google' type='Sign up' />
+        <OAuthButton outhType='github' type='Sign up' setIsLogin={setIsLogin} />
+        <OAuthButton outhType='google' type='Sign up' setIsLogin={setIsLogin} />
       </div>
     );
   } else if (authType === 'login') {

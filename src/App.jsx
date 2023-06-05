@@ -10,7 +10,6 @@ import { FriendList, SmsDetail, WriteSms, Auth } from './pages';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 function App() {
-  const [user, setUser] = useState('로그인 해주세요'); // 현재 user(비로그인/로그아웃시 '로그인 해주세요')
   const [id, setId] = useState(0); // DB에 담길 id
   const [content, setContent] = useState(''); // DB에 담길 content
   const [lists, setLists] = useState([]); // DB에서부터 가져온 data list
@@ -26,7 +25,7 @@ function App() {
         <Routes>
           <Route path='/' element={<div>메인페이지</div>} />
           <Route path='/login' element={<Auth authType={'login'} setIsLogin={setIsLogin} />} />
-          <Route path='/signup' element={<Auth authType={'signup'} />} />
+          <Route path='/signup' element={<Auth authType={'signup'} setIsLogin={setIsLogin} />} />
           <Route path='/friend' element={<FriendList />} />
           <Route path='/sms:id' element={<SmsDetail />} />
           <Route path='/write' element={<WriteSms />} />

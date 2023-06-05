@@ -1,22 +1,26 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Button } from './';
 import { handleGithubLogin, handleGoogleLogin } from '../function/auth';
 
 /**
  *
  * @param {string} outhType 'github' or 'google'
- * @param {function} setUser
  * @param {string} type 'Log in' or 'Sign up'
+ * @param {function} setIsLogin
  * @param {*} children
  * @returns
  */
-const OAuthButton = ({ outhType, setUser, type }) => {
+const OAuthButton = ({ outhType, type, setIsLogin }) => {
+  const navigate = useNavigate();
+
   const handleClick = () => {
     if (outhType === 'github') {
-      handleGithubLogin(setUser);
+      handleGithubLogin(setIsLogin);
     } else {
-      handleGoogleLogin(setUser);
+      handleGoogleLogin(setIsLogin);
     }
+    navigate('/');
   };
 
   const buttonStyle =
