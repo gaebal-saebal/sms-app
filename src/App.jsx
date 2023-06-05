@@ -14,6 +14,7 @@ function App() {
   const [id, setId] = useState(0); // DB에 담길 id
   const [content, setContent] = useState(''); // DB에 담길 content
   const [lists, setLists] = useState([]); // DB에서부터 가져온 data list
+  const [isLogin, setIsLogin] = useState(window.sessionStorage.getItem('accessToken'));
 
   useEffect(() => {
     getData(setLists);
@@ -24,13 +25,15 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path='/' element={<div>메인페이지</div>} />
-          <Route path='/login' element={<Auth authType={'login'} />} />
+          <Route path='/login' element={<Auth authType={'login'} setIsLogin={setIsLogin} />} />
           <Route path='/signup' element={<Auth authType={'signup'} />} />
           <Route path='/friend' element={<FriendList />} />
           <Route path='/sms:id' element={<SmsDetail />} />
           <Route path='/write' element={<WriteSms />} />
         </Routes>
-        <Navbar>네비게이션바</Navbar>
+        <Navbar isLogin={isLogin} setIsLogin={setIsLogin}>
+          네비게이션바
+        </Navbar>
       </BrowserRouter>
     </div>
   );

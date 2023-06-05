@@ -1,11 +1,12 @@
 import { getAuth, signOut } from 'firebase/auth';
 
 const auth = getAuth();
-const handleLogOut = (setState) => {
+const handleLogOut = (setIsLogin) => {
   signOut(auth)
     .then(() => {
       console.log('log-out successful');
-      setState('로그인 해주세요');
+      window.sessionStorage.removeItem('accessToken');
+      setIsLogin(null);
       // Sign-out successful.
     })
     .catch((error) => {
