@@ -6,7 +6,7 @@ import { addData, getData, deleteData } from './function/db';
 // import handle Auth functions from function/auth dir
 import { handleLogOut } from './function/auth';
 // import pages
-import { SignUp, Login, FriendList, SmsDetail, WriteSms } from './pages';
+import { FriendList, SmsDetail, WriteSms, Auth } from './pages';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 function App() {
@@ -24,8 +24,8 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path='/' element={<div>메인페이지</div>} />
-          <Route path='/login' element={<Login />} />
-          <Route path='/signup' element={<SignUp />} />
+          <Route path='/login' element={<Auth authType={'login'} />} />
+          <Route path='/signup' element={<Auth authType={'signup'} />} />
           <Route path='/friend' element={<FriendList />} />
           <Route path='/sms:id' element={<SmsDetail />} />
           <Route path='/write' element={<WriteSms />} />

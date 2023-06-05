@@ -1,7 +1,6 @@
 import FriendList from './FriendList';
-import Login from './Login';
-import SignUp from './SignUp';
+import Auth from './Auth';
 import SmsDetail from './SmsDetail';
 import WriteSms from './WriteSms';
 
-export { SignUp, Login, FriendList, SmsDetail, WriteSms };
+export { Auth, FriendList, SmsDetail, WriteSms };
