@@ -24,8 +24,6 @@ const OAuthButton = ({ outhType, setUser, type }) => {
     ' ' +
     (outhType === 'github' ? 'bg-black' : 'bg-white');
 
-  console.log(buttonStyle);
-
   return (
     <Button onClick={handleClick} style={buttonStyle}>
       {outhType === 'github' ? `${type} with GitHub` : `${type} with Google`}
