@@ -34,8 +34,8 @@ const SignUp = () => {
       <Button className='mt-12' onClick={handleClick}>
         SignUp
       </Button>
-      <OAuthButton outhType='github' />
-      <OAuthButton outhType='google' />
+      <OAuthButton outhType='github' type='Sign up' />
+      <OAuthButton outhType='google' type='Sign up' />
     </div>
   );
 };

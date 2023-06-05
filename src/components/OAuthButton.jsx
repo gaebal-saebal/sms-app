@@ -4,12 +4,13 @@ import { handleGithubLogin, handleGoogleLogin } from '../function/auth';
 
 /**
  *
- * @param {string} type 'github' or 'google'
+ * @param {string} outhType 'github' or 'google'
  * @param {function} setUser
+ * @param {string} type 'Log in' or 'Sign up'
  * @param {*} children
  * @returns
  */
-const OAuthButton = ({ outhType, setUser }) => {
+const OAuthButton = ({ outhType, setUser, type }) => {
   const handleClick = () => {
     if (outhType === 'github') {
       handleGithubLogin(setUser);
@@ -27,7 +28,7 @@ const OAuthButton = ({ outhType, setUser }) => {
 
   return (
     <Button onClick={handleClick} style={buttonStyle}>
-      {outhType === 'github' ? 'Sign up with GitHub' : 'Sign up with Google'}
+      {outhType === 'github' ? `${type} with GitHub` : `${type} with Google`}
     </Button>
   );
 };
