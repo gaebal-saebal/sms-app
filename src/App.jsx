@@ -12,12 +12,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 function App() {
   const [id, setId] = useState(0); // DB에 담길 id
   const [content, setContent] = useState(''); // DB에 담길 content
-  const [lists, setLists] = useState([]); // DB에서부터 가져온 data list
   const [isLogin, setIsLogin] = useState(window.sessionStorage.getItem('accessToken'));
-
-  useEffect(() => {
-    getData(setLists);
-  }, []); // '/' 페이지가 로드될 시 data list 가져옴
 
   return (
     <div className='relative h-screen w-[768px] bg-red-100 flex-center'>
@@ -27,7 +22,7 @@ function App() {
           <Route path='/login' element={<Auth authType={'login'} setIsLogin={setIsLogin} />} />
           <Route path='/signup' element={<Auth authType={'signup'} setIsLogin={setIsLogin} />} />
           <Route path='/friend' element={<FriendList />} />
-          <Route path='/sms:id' element={<SmsDetail />} />
+          <Route path='/sms' element={<SmsDetail />} />
           <Route path='/write' element={<WriteSms />} />
         </Routes>
         <Navbar isLogin={isLogin} setIsLogin={setIsLogin}>

@@ -1,7 +1,14 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { getData } from '../function/db';
 
 const SmsDetail = () => {
-  return <div>문자메시지 읽는 페이지</div>;
+  const [lists, setLists] = useState([]);
+
+  useEffect(() => {
+    getData(setLists);
+  }, []);
+
+  return <div>{lists.content}</div>;
 };
 
 export default SmsDetail;

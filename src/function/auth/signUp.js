@@ -8,6 +8,7 @@ const handleSignUp = async (email, password) => {
       const user = userCredential.user;
       // ...
       console.log(user);
+      //TODO: 회원가입된 정보를 바탕으로 addData 함수를 불러와서 database에 회원정보 저장하기
     })
     .catch((error) => {
       const errorCode = error.code;
