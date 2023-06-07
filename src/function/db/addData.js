@@ -7,7 +7,7 @@ import { db } from '../../firebase/firebase';
  * @param {*} reciever string
  * @param {*} type 'users' or 'sms'
  */
-export default async function addData(content, reciever, type) {
+export default async function addData(content, reciever, userId, email, type) {
   const date = new Date().toLocaleString();
 
   if (type === 'sms') {
@@ -24,5 +24,10 @@ export default async function addData(content, reciever, type) {
     }
   } else if (type === 'users') {
     //TODO: example.md를 참조해서 users에 회원가입한 사람 정보 보내는 함수 만들기
+    const getUser = await addDoc(collection(db, type), {
+      userId,
+      email,
+    });
+    console.log(getUser.id);
   }
 }
