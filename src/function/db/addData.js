@@ -7,14 +7,15 @@ import { db } from '../../firebase/firebase';
  * @param {*} reciever string
  * @param {*} type 'users' or 'sms'
  */
-export default async function addData(content, reciever, userId, email, type) {
+export default async function addData(content, recieverId, userId, email, type) {
   const date = new Date().toLocaleString();
 
   if (type === 'sms') {
     try {
       const docRef = await addDoc(collection(db, type), {
         content,
-        reciever,
+        senderId: userId,
+        recieverId,
         date,
       });
 

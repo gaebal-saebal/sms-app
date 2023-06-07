@@ -6,9 +6,12 @@ const handleSignIn = (email, password, setIsLogin) => {
     .then((userCredential) => {
       // Signed in
       const user = userCredential.user;
+
       // ...
+      const userToken = user.uid;
       const accessToken = user.accessToken;
       let token = window.sessionStorage.setItem('accessToken', accessToken);
+      let userId = window.sessionStorage.setItem('userId', userToken);
       setIsLogin(accessToken);
     })
     .catch((error) => {
