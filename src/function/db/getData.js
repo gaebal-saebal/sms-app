@@ -1,8 +1,13 @@
 import { collection, getDocs } from 'firebase/firestore';
 import { db } from '../../firebase/firebase';
 
-export default async function getData(setLists) {
-  const querySnapshot = await getDocs(collection(db, 'users'));
+/**
+ *
+ * @param {*} setLists
+ * @param {*} type 'users' or 'sms'
+ */
+export default async function getData(setLists, type) {
+  const querySnapshot = await getDocs(collection(db, type));
   let arr = [];
   querySnapshot.forEach((doc) => {
     arr.push(doc.data());

@@ -9,6 +9,7 @@ import { db } from '../../firebase/firebase';
  */
 export default async function addData(content, recieverId, userId, email, type) {
   const date = new Date().toLocaleString();
+  const createdAt = new Date().getTime();
 
   if (type === 'sms') {
     try {
@@ -17,6 +18,7 @@ export default async function addData(content, recieverId, userId, email, type) 
         senderId: userId,
         recieverId,
         date,
+        createdAt,
       });
 
       console.log('Document written with ID: ', docRef.id);
