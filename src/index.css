@@ -2,6 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 
+#root {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  font-family: 'Dongle', sans-serif;
+  font-size: 2em;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+}
+
 @layer components {
   .test {
     background-color: pink;
@@ -14,15 +28,4 @@
     justify-content: center;
     align-items: center;
   }
-}
-
-body {
-  width: 100vw;
-  height: 100vh;
-  background: #eee;
-}
-
-#root {
-  display: flex;
-  justify-content: center;
 }

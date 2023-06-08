@@ -5,7 +5,7 @@ import { Button } from './';
 
 const Navbar = ({ isLogin, setIsLogin }) => {
   return (
-    <div className='absolute bottom-0 flex justify-between w-full h-16 px-10 bg-slate-400'>
+    <div className='absolute bottom-0 flex justify-between w-full h-16 px-10 bg-main-blue'>
       <Link to='/' className='h-full flex-center'>
         홈으로
       </Link>

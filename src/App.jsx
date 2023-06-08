@@ -15,7 +15,7 @@ function App() {
   const [isLogin, setIsLogin] = useState(window.sessionStorage.getItem('accessToken'));
 
   return (
-    <div className='relative h-screen w-[768px] bg-red-100 flex-center'>
+    <div className='relative bg-[#fff4f6] w-screen h-screen max-w-xl pb-16 flex-center'>
       <BrowserRouter>
         <Routes>
           <Route path='/' element={<div>메인페이지</div>} />
