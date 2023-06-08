@@ -71,7 +71,7 @@ const Auth = ({ authType, setIsLogin }) => {
       <div className='flex-col w-64 flex-center'>
         <div className='w-[80px] h-[80px]'>
           <svg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 24 24'>
-            <g fill='none' stroke-linecap='round' stroke-linejoin='round' stroke-width='2'>
+            <g fill='none' strokeLinecap='round' strokeLinejoin='round' strokeWidth='2'>
               <path d='M0 0h24v24H0z'></path>
               <path
                 fill='#ffc0cb'
