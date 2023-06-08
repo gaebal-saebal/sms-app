@@ -20,7 +20,18 @@ const SmsDetail = () => {
       return e.createdAt;
     });
     arr2.sort((a, b) => a - b);
+    console.log(arr2);
     // arr2 : 작성일자 순서대로 정렬된 createdAt만으로 구성된 배열
+
+    const arr3 = new Array();
+    arr2.forEach((e) => {
+      lists.forEach((list) => {
+        if (list.createdAt === e) {
+          arr3.push(list);
+        }
+      });
+    });
+    setSms(arr3);
   };
 
   useEffect(() => {
