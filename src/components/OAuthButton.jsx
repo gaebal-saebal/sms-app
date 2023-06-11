@@ -2,6 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button } from './';
 import { handleGithubLogin, handleGoogleLogin } from '../function/auth';
+import { FaGithub, FaGoogle } from 'react-icons/fa';
 
 /**
  *
@@ -30,7 +31,17 @@ const OAuthButton = ({ outhType, type, setIsLogin }) => {
 
   return (
     <Button onClick={handleClick} style={buttonStyle}>
-      {outhType === 'github' ? `${type} with GitHub` : `${type} with Google`}
+      {outhType === 'github' ? (
+        <span className='flex items-center justify-around'>
+          <FaGithub className='text-2xl' />
+          {`${type} with GitHub`}
+        </span>
+      ) : (
+        <span className='flex items-center justify-around'>
+          <FaGoogle className='text-2xl' />
+          {`${type} with Google`}
+        </span>
+      )}
     </Button>
   );
 };
