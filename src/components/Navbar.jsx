@@ -1,11 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { handleLogOut } from '../function/auth';
-import { Button } from './';
 
 const Navbar = ({ isLogin, setIsLogin }) => {
   return (
-    <div className='absolute bottom-0 flex justify-between w-full h-16 px-10 bg-main-blue'>
+    <div className='absolute bottom-0 flex justify-between w-full h-16 px-10 align-center bg-main-blue'>
       <Link to='/' className='h-full flex-center'>
         홈으로
       </Link>
@@ -13,7 +12,9 @@ const Navbar = ({ isLogin, setIsLogin }) => {
         친구목록
       </Link>
       {isLogin ? (
-        <Button onClick={() => handleLogOut(setIsLogin)}>로그아웃</Button>
+        <div className='flex-center hover:cursor-pointer' onClick={() => handleLogOut(setIsLogin)}>
+          로그아웃
+        </div>
       ) : (
         <>
           <Link to='/login' className='h-full flex-center'>

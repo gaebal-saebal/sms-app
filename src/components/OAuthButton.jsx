@@ -30,7 +30,7 @@ const OAuthButton = ({ outhType, type, setIsLogin }) => {
     (outhType === 'github' ? 'bg-black' : 'bg-white');
 
   return (
-    <Button onClick={handleClick} style={buttonStyle}>
+    <Button onClick={handleClick} customStyle={buttonStyle}>
       {outhType === 'github' ? (
         <span className='flex items-center justify-around'>
           <FaGithub className='text-2xl' />

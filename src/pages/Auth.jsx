@@ -59,7 +59,7 @@ const Auth = ({ authType, setIsLogin }) => {
           type='password'
           onChange={(e) => handleChange(e, setPassword)}
         ></input>
-        <Button style={'mt-12 bg-main-pink text-white'} onClick={handleClick}>
+        <Button customStyle={'mt-12 bg-main-pink text-white'} onClick={handleClick}>
           SignUp
         </Button>
         <OAuthButton outhType='github' type='Sign up' setIsLogin={setIsLogin} />
@@ -92,7 +92,7 @@ const Auth = ({ authType, setIsLogin }) => {
           type='password'
           onChange={(e) => handleChange(e, setPassword)}
         ></input>
-        <Button style={'mt-12 bg-main-pink text-white'} onClick={handleClick}>
+        <Button customStyle={'mt-12 bg-main-pink text-white'} onClick={handleClick}>
           Login
         </Button>
         <OAuthButton outhType='github' type='Login' />
