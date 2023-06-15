@@ -6,7 +6,7 @@ import { addData, getData, deleteData } from './function/db';
 // import handle Auth functions from function/auth dir
 import { handleLogOut } from './function/auth';
 // import pages
-import { FriendList, SmsDetail, WriteSms, Auth } from './pages';
+import { FriendList, SmsDetail, WriteSms, Auth, Home } from './pages';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 function App() {
@@ -15,10 +15,10 @@ function App() {
   const [isLogin, setIsLogin] = useState(window.sessionStorage.getItem('accessToken'));
 
   return (
-    <div className='relative bg-[#fff4f6] w-screen h-screen max-w-xl pb-16 flex-center'>
+    <div className='relative bg-[#fff4f6] w-screen h-full max-w-xl pb-16 flex-center'>
       <BrowserRouter>
         <Routes>
-          <Route path='/' element={<div>메인페이지</div>} />
+          <Route path='/' element={<Home />} />
           <Route path='/login' element={<Auth authType={'login'} setIsLogin={setIsLogin} />} />
           <Route path='/signup' element={<Auth authType={'signup'} setIsLogin={setIsLogin} />} />
           <Route path='/friend' element={<FriendList />} />

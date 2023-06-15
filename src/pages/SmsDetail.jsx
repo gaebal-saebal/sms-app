@@ -63,7 +63,7 @@ const SmsDetail = () => {
   }, [lists]);
 
   return (
-    <div>
+    <div className='page-content scrollbar-hidden'>
       <div>리스트네요</div>
       {sms.length > 0
         ? sms.map((msg, i) => {

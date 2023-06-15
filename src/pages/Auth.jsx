@@ -37,7 +37,7 @@ const Auth = ({ authType, setIsLogin }) => {
 
   if (authType === 'signup') {
     return (
-      <div className='flex-col w-64 h-1/2 flex-center'>
+      <div className='page-content scrollbar-hidden'>
         <div className='w-[80px] h-[80px]'>
           <svg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 20 20'>
             <path
@@ -68,7 +68,7 @@ const Auth = ({ authType, setIsLogin }) => {
     );
   } else if (authType === 'login') {
     return (
-      <div className='flex-col w-64 flex-center'>
+      <div className='page-content scrollbar-hidden'>
         <div className='w-[80px] h-[80px]'>
           <svg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 24 24'>
             <g fill='none' strokeLinecap='round' strokeLinejoin='round' strokeWidth='2'>
