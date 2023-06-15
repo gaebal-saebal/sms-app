@@ -3,6 +3,7 @@ import { getData } from '../function/db';
 import { collection, getDocs } from 'firebase/firestore';
 import { db } from '../firebase/firebase';
 import { Link } from 'react-router-dom';
+//TODO: 문자 메시지 20자 까지만 보이게 하기 + 각 문자 메시지 클릭하면 상세로 들어가서 답장/삭제 할 수 있게 만들기
 
 const SmsDetail = () => {
   const [lists, setLists] = useState([]);
@@ -23,8 +24,7 @@ const SmsDetail = () => {
     const arr2 = arr.map((e) => {
       return e.createdAt;
     });
-    arr2.sort((a, b) => a - b);
-
+    arr2.sort((a, b) => b - a);
     // arr2 : 작성일자 순서대로 정렬된 createdAt만으로 구성된 배열
 
     const arr3 = new Array();
