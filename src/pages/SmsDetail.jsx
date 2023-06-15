@@ -37,22 +37,6 @@ const SmsDetail = () => {
     setSms(arr3);
   };
 
-  useEffect(() => {
-    getData(setLists, 'sms');
-  }, []);
-
-  useEffect(() => {
-    getSms();
-  }, [lists]);
-
-  useEffect(async () => {
-    const querySnapshot = await getDocs(collection(db, 'users'));
-    querySnapshot.forEach((doc) => {
-      // 가져온 모든 문서들을 확인
-      setUsers((prev) => [...prev, doc.data()]);
-    });
-  }, []);
-
   function isName(senderId) {
     for (let i = 0; i < users.length; i++) {
       if (senderId === users[i].userId) {
@@ -60,12 +44,27 @@ const SmsDetail = () => {
       }
     }
   }
-  console.log(users);
+
+  async function getUserList() {
+    const querySnapshot = await getDocs(collection(db, 'users'));
+    querySnapshot.forEach((doc) => {
+      // 가져온 모든 문서들을 확인
+      setUsers((prev) => [...prev, doc.data()]);
+    });
+  }
+
+  useEffect(() => {
+    getData(setLists, 'sms');
+    getUserList();
+  }, []);
+
+  useEffect(() => {
+    getSms();
+  }, [lists]);
 
   return (
     <div>
       <div>리스트네요</div>
-
       {sms.length > 0
         ? sms.map((msg, i) => {
             return (
