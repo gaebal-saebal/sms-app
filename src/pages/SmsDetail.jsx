@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { getData } from '../function/db';
 import { collection, getDocs } from 'firebase/firestore';
 import { db } from '../firebase/firebase';
+import { Link } from 'react-router-dom';
 
 const SmsDetail = () => {
   const [lists, setLists] = useState([]);
@@ -72,6 +73,7 @@ const SmsDetail = () => {
                 <div>내용 : {msg.content}</div>
                 <div>받은시간 : {msg.date}</div>
                 <div>보낸사람 : {isName(msg.senderId)}</div>
+                <Link to={`/write/${msg.senderId}`}>답장 보내기</Link>
               </div>
             );
           })

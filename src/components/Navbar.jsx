@@ -12,9 +12,17 @@ const Navbar = ({ isLogin, setIsLogin }) => {
         친구목록
       </Link>
       {isLogin ? (
-        <div className='flex-center hover:cursor-pointer' onClick={() => handleLogOut(setIsLogin)}>
-          로그아웃
-        </div>
+        <>
+          <Link to='/sms' className='h-full flex-center'>
+            SMS
+          </Link>
+          <div
+            className='flex-center hover:cursor-pointer'
+            onClick={() => handleLogOut(setIsLogin)}
+          >
+            로그아웃
+          </div>
+        </>
       ) : (
         <>
           <Link to='/login' className='h-full flex-center'>

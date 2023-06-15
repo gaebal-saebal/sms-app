@@ -23,7 +23,7 @@ function App() {
           <Route path='/signup' element={<Auth authType={'signup'} setIsLogin={setIsLogin} />} />
           <Route path='/friend' element={<FriendList />} />
           <Route path='/sms' element={<SmsDetail />} />
-          <Route path='/write' element={<WriteSms />} />
+          <Route path='/write/:id' element={<WriteSms />} />
         </Routes>
         <Navbar isLogin={isLogin} setIsLogin={setIsLogin}>
           네비게이션바
