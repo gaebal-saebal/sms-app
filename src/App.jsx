@@ -6,7 +6,7 @@ import { addData, getData, deleteData } from './function/db';
 // import handle Auth functions from function/auth dir
 import { handleLogOut } from './function/auth';
 // import pages
-import { FriendList, SmsList, WriteSms, Auth, Home } from './pages';
+import { FriendList, SmsList, WriteSms, Auth, Home, SmsDetail } from './pages';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 function App() {
@@ -23,6 +23,7 @@ function App() {
           <Route path='/signup' element={<Auth authType={'signup'} setIsLogin={setIsLogin} />} />
           <Route path='/friend' element={<FriendList />} />
           <Route path='/sms' element={<SmsList />} />
+          <Route path='/sms-detail/:id' element={<SmsDetail />} />
           <Route path='/write/:id' element={<WriteSms />} />
         </Routes>
         <Navbar isLogin={isLogin} setIsLogin={setIsLogin}>
