@@ -69,12 +69,18 @@ const SmsDetail = () => {
       {sms.length > 0
         ? sms.map((msg, i) => {
             return (
-              <div key={i}>
-                <div>내용 : {msg.content}</div>
-                <div>받은시간 : {msg.date}</div>
-                <div>보낸사람 : {isName(msg.senderId)}</div>
-                <Link to={`/write/${msg.senderId}`}>답장 보내기</Link>
-              </div>
+              <Link
+                className='w-full px-16 mb-1 duration-500 bg-white border-2 hover:bg-slate-100'
+                to={`/write/${msg.senderId}`}
+                key={i}
+              >
+                <div className='text-ellipsis'>{msg.content}</div>
+                <div className='flex justify-between text-xl text-gray-400'>
+                  <div>{msg.date}</div>
+                  <div>{isName(msg.senderId)}</div>
+                </div>
+                {/* <Link to={`/write/${msg.senderId}`}>답장 보내기</Link> */}
+              </Link>
             );
           })
         : null}
