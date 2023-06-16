@@ -5,8 +5,9 @@ const handleLogOut = (setIsLogin) => {
   signOut(auth)
     .then(() => {
       console.log('log-out successful');
-      window.sessionStorage.removeItem('accessToken');
+      window.sessionStorage.clear();
       setIsLogin(null);
+      window.location.href = '/';
       // Sign-out successful.
     })
     .catch((error) => {
