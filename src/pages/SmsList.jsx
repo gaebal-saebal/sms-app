@@ -70,7 +70,7 @@ const SmsList = () => {
         return (
           <Link
             className='w-full px-16 mb-1 duration-500 bg-white border-2 hover:bg-slate-100'
-            to={`/write/${msg.senderId}`}
+            to={`/sms-detail/${msg.recieverId}?createdAt=${msg.createdAt}`}
             key={i}
           >
             <div className='truncate'>{msg.content}</div>
