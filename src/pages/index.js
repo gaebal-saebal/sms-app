@@ -1,7 +1,7 @@
 import FriendList from './FriendList';
 import Auth from './Auth';
-import SmsDetail from './SmsDetail';
+import SmsList from './SmsList';
 import WriteSms from './WriteSms';
 import Home from './Home';
 
-export { Auth, FriendList, SmsDetail, WriteSms, Home };
+export { Auth, FriendList, SmsList, WriteSms, Home };
