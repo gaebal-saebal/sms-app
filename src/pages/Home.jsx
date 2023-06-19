@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const Home = () => {
   const [lists, setLists] = useState([]);
   /*
-  TODO: 메인 페이지에 공개 문자를 불러오는 기능을 추가해주세요.
+  1) TODO: 메인 페이지에 공개 문자를 불러오는 기능을 추가해주세요.
   userId : XJUH0riK0KRkFtg3YsxybKCJt072 인 계정이 받는 sms를 보여주시면 됩니다.
   공개 문자를 작성하는 버튼과 기능은 아래 Link 내에 완성되어 있으니 확인해주세요!
 
@@ -12,6 +12,10 @@ const Home = () => {
   getData(setLists, 'sms')
   userId를 사용해서 해당 user가 받은 sms를 filter하는 작업은 src/pages/SmsList.jsx에서 했었죠?
   lists에서 receiverId가 'XJUH0riK0KRkFtg3YsxybKCJt072'인 sms만 filter하시면 됩니다!
+  */
+
+  /*
+  2) TODO: 공개 문자를 클릭해서 그 문자를 작성한 사람에게 SMS를 보내는 기능을 추가해주세요.
   */
   return (
     <div className='page-content scrollbar-hidden'>
