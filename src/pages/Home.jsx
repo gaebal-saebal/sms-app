@@ -30,7 +30,7 @@ const Home = () => {
       setUsers((prev) => [...prev, doc.data()]);
     });
   }
-  console.log('users:', users);
+
   const anonymousSms = () => {
     const arr = [];
     if (lists.length > 0) {
@@ -44,7 +44,6 @@ const Home = () => {
       return e.createdAt;
     });
     sortArr.sort((a, b) => b - a);
-    console.log('sort:', sortArr);
 
     const result = [];
     sortArr.forEach((sort) => {
@@ -75,8 +74,6 @@ const Home = () => {
     anonymousSms();
   }, [lists]);
 
-  console.log(lists);
-  console.log('sms', sms);
   return (
     <div className='page-content scrollbar-hidden'>
       <Link
