@@ -9,6 +9,7 @@
   justify-content: center;
   font-family: 'Dongle', sans-serif;
   font-size: 2em;
+  background-image: url('../public/pattern.png');
 }
 
 body {
@@ -18,7 +19,6 @@ body {
 
 @layer components {
   .test {
-    background-color: pink;
     font-size: 40px;
     font-weight: bold;
   }
