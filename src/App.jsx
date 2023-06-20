@@ -15,7 +15,7 @@ function App() {
   const [isLogin, setIsLogin] = useState(window.sessionStorage.getItem('accessToken'));
 
   return (
-    <div className='relative bg-[#fff4f6] w-screen h-full max-w-xl pb-16 flex-center'>
+    <div className='relative bg-[#fff4f6]  h-full w-[576px] pb-16 flex-center'>
       <BrowserRouter>
         <Routes>
           <Route path='/' element={<Home />} />
