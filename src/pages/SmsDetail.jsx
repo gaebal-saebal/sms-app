@@ -1,7 +1,8 @@
 import React, { useEffect } from 'react';
 import { useState } from 'react';
-import { useParams, useSearchParams } from 'react-router-dom';
+import { Link, useParams, useSearchParams } from 'react-router-dom';
 import getSmsDetail from '../function/db/getSmsDetail';
+import { deleteData } from '../function/db';
 import { collection, getDocs } from 'firebase/firestore';
 import { db } from '../firebase/firebase';
 
@@ -20,13 +21,6 @@ const SmsDetail = () => {
       setUsers((prev) => [...prev, doc.data()]);
     });
   }
-
-  useEffect(() => {
-    getSmsDetail(setSms, createdAt, recieverId);
-    getUserList();
-  }, []);
-  console.log(sms);
-
   function isName(senderId) {
     for (let i = 0; i < users.length; i++) {
       if (senderId === users[i].userId) {
@@ -34,6 +28,16 @@ const SmsDetail = () => {
       }
     }
   }
+
+  const deleteSms = async () => {
+    await deleteData(createdAt, recieverId);
+    window.location.href = '/sms';
+  };
+
+  useEffect(() => {
+    getSmsDetail(setSms, createdAt, recieverId);
+    getUserList();
+  }, []);
 
   /*
   1. TODO:
@@ -66,10 +70,16 @@ const SmsDetail = () => {
               </div>
             </div>
             <div className='w-[250px] z-10 flex justify-between px-3'>
-              <button className='w-16 h-10 text-2xl text-white bg-green-900 border-4 border-white rounded-3xl'>
+              <Link
+                to={`/write/${sms[0].senderId}`}
+                className='w-16 h-10 text-2xl text-center text-white bg-green-900 border-4 border-white rounded-3xl'
+              >
                 답장
-              </button>
-              <button className='w-16 h-10 text-2xl text-white bg-red-600 border-4 border-white rounded-3xl'>
+              </Link>
+              <button
+                onClick={deleteSms}
+                className='w-16 h-10 text-2xl text-white bg-red-600 border-4 border-white rounded-3xl'
+              >
                 삭제
               </button>
             </div>
