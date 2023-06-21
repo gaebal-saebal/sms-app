@@ -30,6 +30,7 @@ export default async function addData(content, recieverId, userId, email, type) 
     const getUser = await addDoc(collection(db, type), {
       userId,
       email,
+      address: [],
     });
     console.log(getUser.id);
   }
