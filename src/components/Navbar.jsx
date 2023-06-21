@@ -22,7 +22,7 @@ const Navbar = ({ isLogin, setIsLogin }) => {
           urlName === '/friend' ? 'text-white text-4xl' : 'hover:text-white'
         }`}
       >
-        친구목록
+        주소록
       </Link>
       {isLogin ? (
         <>
