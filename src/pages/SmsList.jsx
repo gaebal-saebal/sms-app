@@ -64,20 +64,24 @@ const SmsList = () => {
 
   return sms.length > 0 ? (
     <div className='page-content scrollbar-hidden'>
-      {sms.map((msg, i) => {
+      {sms.map((msg, idx) => {
         return (
-          <Link
-            className='w-full px-16 mb-1 duration-500 bg-white border-2 hover:bg-slate-100'
-            to={`/sms-detail/${msg.recieverId}?createdAt=${msg.createdAt}`}
-            key={i}
-          >
-            <div className='truncate'>{msg.content}</div>
-            <div className='flex justify-between text-xl text-gray-400'>
-              <div>{msg.date}</div>
-              <div>{isName(msg.senderId)}</div>
-            </div>
-            {/* <Link to={`/write/${msg.senderId}`}>답장 보내기</Link> */}
-          </Link>
+          <div className='flex justify-center w-full' key={idx}>
+            <Link
+              className='w-4/6 px-16 mb-1 duration-500 bg-white border-2 rounded-lg hover:bg-slate-100'
+              to={`/sms-detail/${msg.recieverId}?createdAt=${msg.createdAt}`}
+            >
+              <div className='truncate'>{msg.content}</div>
+              <div className='flex justify-between text-xl text-gray-400'>
+                <div>{msg.date}</div>
+                <div>{isName(msg.senderId)}</div>
+              </div>
+              {/* <Link to={`/write/${msg.senderId}`}>답장 보내기</Link> */}
+            </Link>
+            <button className='flex items-center justify-center w-1/6 ml-5'>
+              <img className='w-1/2 duration-500 hover:w-2/3' src='/address.png' alt='logo' />
+            </button>
+          </div>
         );
       })}
     </div>

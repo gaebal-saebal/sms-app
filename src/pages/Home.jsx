@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { getData } from '../function/db';
 import { collection, getDocs } from 'firebase/firestore';
 import { db } from '../firebase/firebase';
+import addAddress from '../function/db/addAddress';
 
 const Home = () => {
   const [lists, setLists] = useState([]);
@@ -57,6 +58,10 @@ const Home = () => {
     setSms(result);
   };
 
+  const addFriend = (e) => {
+    addAddress(e.target.alt);
+  };
+
   function isName(senderId) {
     for (let i = 0; i < users.length; i++) {
       if (senderId === users[i].userId) {
@@ -84,17 +89,28 @@ const Home = () => {
       </Link>
       {sms.map((item, idx) => {
         return (
-          <Link
-            to={`/write/${item.senderId}`}
-            className='w-full px-16 mb-1 duration-500 bg-white border-2 hover:bg-slate-100'
-            key={idx}
-          >
-            <div className='truncate'>{item.content}</div>
-            <div className='flex justify-between text-xl text-gray-400'>
-              <div>{item.date}</div>
-              <div>{isName(item.senderId)}</div>
-            </div>
-          </Link>
+          <div className='flex justify-center w-full' key={idx}>
+            <Link
+              to={`/write/${item.senderId}`}
+              className='w-4/6 px-16 mb-1 duration-500 bg-white border-2 rounded-lg hover:bg-slate-100'
+            >
+              <div className='truncate'>{item.content}</div>
+              <div className='flex justify-between text-xl text-gray-400'>
+                <div>{item.date}</div>
+                <div>{isName(item.senderId)}</div>
+              </div>
+            </Link>
+            <button className='flex items-center justify-center w-1/6 ml-5'>
+              <img
+                className='w-1/2 duration-500 hover:w-2/3'
+                src='/address.png'
+                alt={item.senderId}
+                onClick={(e) => {
+                  addFriend(e);
+                }}
+              />
+            </button>
+          </div>
         );
       })}
     </div>
