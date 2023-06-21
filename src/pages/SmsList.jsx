@@ -3,7 +3,6 @@ import { getData } from '../function/db';
 import { collection, getDocs } from 'firebase/firestore';
 import { db } from '../firebase/firebase';
 import { Link } from 'react-router-dom';
-//TODO: 문자 메시지 20자 까지만 보이게 하기 + 각 문자 메시지 클릭하면 상세로 들어가서 답장/삭제 할 수 있게 만들기
 
 const SmsList = () => {
   const [lists, setLists] = useState([]);
@@ -65,7 +64,6 @@ const SmsList = () => {
 
   return sms.length > 0 ? (
     <div className='page-content scrollbar-hidden'>
-      <div>리스트네요</div>
       {sms.map((msg, i) => {
         return (
           <Link
