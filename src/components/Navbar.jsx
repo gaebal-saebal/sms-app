@@ -7,7 +7,7 @@ const Navbar = ({ isLogin, setIsLogin }) => {
   const urlName = location.pathname;
 
   return (
-    <div className='absolute bottom-0 flex justify-between w-full h-16 px-10 align-center bg-main-blue'>
+    <div className='absolute bottom-0 z-20 flex justify-between w-full h-16 px-10 align-center bg-main-blue'>
       <Link
         to='/'
         className={`h-full flex-center ${urlName === '/' ? 'text-white' : 'hover:text-white'}`}
