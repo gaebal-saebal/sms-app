@@ -32,7 +32,13 @@ const WriteSms = () => {
   }
 
   const handleChangeText = (e) => {
-    setContent(e.target.value);
+    if (e.target.value.length <= 40) {
+      setContent(e.target.value);
+    } else {
+      alert('글자수가 40자를 초과하였습니다.');
+      let result = e.target.value.substr(0, 40);
+      e.target.value = result;
+    }
   };
 
   useEffect(() => {
@@ -51,8 +57,12 @@ const WriteSms = () => {
         ) : (
           <div>익명의 모두에게 보낼 메시지를 작성해주세요!</div>
         )}
-        <input onChange={(e) => handleChangeText(e)} placeholder='문자내용' />
-
+        <textarea
+          className='resize-none'
+          onChange={(e) => handleChangeText(e)}
+          placeholder='문자내용'
+        />
+        <span>{content.length}/40</span>
         <button
           onClick={() => {
             addData(content, reciever, userId, null, 'sms');

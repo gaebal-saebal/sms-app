@@ -1,16 +1,52 @@
-import React from 'react';
+import { collection, getDocs } from 'firebase/firestore';
+import React, { useEffect, useState } from 'react';
+import { db } from '../firebase/firebase';
+import { Link } from 'react-router-dom';
 
 const FriendList = () => {
-  /*TODO: 친구 목록을 만들어주세요.
-  친구의 조건 : 
-    내가 문자 메시지를 보낸 적이 있고 && 그 사람에게 문자 메시지를 받은 적이 있으면 내 친구목록에 추가됨
-    (답장을 못 받으면 그 사람하고 친구가 될 수 없음) + 친구인 사람들 끼리는 100% 서로 친구
+  const [users, setUsers] = useState([]);
+  const [usersTotal, setUsersTotal] = useState([]);
+  let userId = window.sessionStorage.getItem('userId');
 
-    친구 성사 환경
-    1. 내가 먼저 보내고 답장을 받았을 때 친구등록
-    2. 상대가 먼저 보내고 내가 답장할 때 친구등록
-  */
-  return <div className='page-content scrollbar-hidden'>친구목록 페이지</div>;
+  function isName(senderId) {
+    for (let i = 0; i < usersTotal.length; i++) {
+      if (senderId === usersTotal[i].userId) {
+        return usersTotal[i].email;
+      }
+    }
+  }
+
+  useEffect(() => {
+    async function fetchData() {
+      const querySnapshot = await getDocs(collection(db, 'users'));
+      querySnapshot.forEach((doc) => {
+        // 가져온 모든 문서들을 확인
+        setUsersTotal((prev) => [...prev, doc.data()]);
+        if (userId === doc.data().userId) {
+          setUsers(doc.data().address);
+        }
+      });
+    }
+    fetchData();
+  }, []);
+
+  return (
+    <div className='page-content scrollbar-hidden'>
+      <div className='mb-6 text-5xl'>주소록</div>
+      {users.map((user, i) => {
+        return (
+          <div className='flex justify-center w-full' key={i}>
+            <div className='w-4/6 px-16 mb-1 duration-500 bg-white border-2 rounded-lg hover:bg-slate-100'>
+              {isName(user)}
+            </div>
+            <Link to={`/write/${user}`} className='flex items-center justify-center w-1/6 ml-5'>
+              <div className='w-1/2 text-center duration-500 hover:text-5xl'>💌</div>
+            </Link>
+          </div>
+        );
+      })}
+    </div>
+  );
 };
 
 export default FriendList;
