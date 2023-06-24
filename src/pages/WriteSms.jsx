@@ -57,20 +57,35 @@ const WriteSms = () => {
         ) : (
           <div>익명의 모두에게 보낼 메시지를 작성해주세요!</div>
         )}
-        <textarea
+        <div className='relative flex flex-col items-center w-full '>
+          <img src='/phone.png' alt='handphoneImg' className='absolute w-full' />
+          <div className='bg-white w-[250px] h-[260px] mt-20 px-5 pt-12 pb-2 flex flex-col'>
+            <textarea className='text-3xl resize-none h-3/4'></textarea>
+            <span className='text-xl text-gray-400 h-1/4'>{content.length}/40</span>
+          </div>
+        </div>
+        <div className='w-[250px] z-10 flex justify-between px-3'>
+          <button className='w-16 h-10 text-2xl text-center text-white bg-green-900 border-4 border-white rounded-3xl'>
+            전송
+          </button>
+          <button className='w-16 h-10 text-2xl text-white bg-red-600 border-4 border-white rounded-3xl'>
+            취소
+          </button>
+        </div>
+
+        {/* <textarea
           className='resize-none'
           onChange={(e) => handleChangeText(e)}
           placeholder='문자내용'
-        />
-        <span>{content.length}/40</span>
-        <button
+        /> */}
+        {/* <button
           onClick={() => {
             addData(content, reciever, userId, null, 'sms');
             navigate('/');
           }}
         >
           보내기
-        </button>
+        </button> */}
       </div>
     );
   } else {
