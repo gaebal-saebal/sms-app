@@ -59,18 +59,31 @@ const WriteSms = () => {
         )}
         <div className='relative flex flex-col items-center w-full '>
           <img src='/phone.png' alt='handphoneImg' className='absolute w-full' />
-          <div className='bg-white w-[250px] h-[260px] mt-20 px-5 pt-12 pb-2 flex flex-col'>
-            <textarea className='text-3xl resize-none h-3/4'></textarea>
-            <span className='text-xl text-gray-400 h-1/4'>{content.length}/40</span>
+          <div className='bg-white w-[227px] h-[215px] mt-[120px] px-3 mb-2 flex flex-col rounded-xl z-10'>
+            <textarea
+              onChange={(e) => handleChangeText(e)}
+              className='pt-2 text-3xl resize-none h-5/6 focus:outline-none'
+              placeholder='문자내용'
+            />
+            <span className='text-xl text-gray-400 h-1/6'>{content.length}/40</span>
           </div>
         </div>
         <div className='w-[250px] z-10 flex justify-between px-3'>
-          <button className='w-16 h-10 text-2xl text-center text-white bg-green-900 border-4 border-white rounded-3xl'>
+          <button
+            onClick={() => {
+              addData(content, reciever, userId, null, 'sms');
+              navigate('/');
+            }}
+            className='w-16 h-10 text-2xl text-center text-white bg-green-900 border-4 border-white rounded-3xl'
+          >
             전송
           </button>
-          <button className='w-16 h-10 text-2xl text-white bg-red-600 border-4 border-white rounded-3xl'>
+          <Link
+            to='/sms'
+            className='w-16 h-10 text-2xl text-center text-white bg-red-600 border-4 border-white rounded-3xl'
+          >
             취소
-          </button>
+          </Link>
         </div>
 
         {/* <textarea
