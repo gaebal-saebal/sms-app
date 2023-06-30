@@ -31,9 +31,6 @@
 > design : 로직 변경 없이 디자인 수정  
 > chore : 그 외
 
-## 구현 기능
-
-## 배운 점 & 아쉬운 점
 
 ## LINKS
 
@@ -41,6 +38,7 @@
 <br>
 <a href="#" target="_blank">Deployment</a>
 <br>
+
 
 ## 라이센스
 
